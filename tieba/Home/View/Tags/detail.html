@@ -1,0 +1,150 @@
+<?php 
+include'./Public/header.html';
+//var_dump($_SESSION);
+
+include'./Public/nav.html';
+
+?>
+<link media="all" href="./Public/img/index.css" type="text/css" rel="stylesheet">
+	
+<div class="row-fluid" id="nav">	
+	<div class="span8 offset2">
+		
+	</div>
+</div>
+
+<div class="li" style="margin:0 auto;width:60%">
+<div class="d_author">                <ul class="p_author">
+                <li class="icon">
+                    <div class="icon_relative j_user_card" data-field="{&quot;un&quot;:&quot;\u4f60m5&quot;}">
+                        
+                        
+                    </div>
+                </li>
+                <li class="d_nameplate">
+                    
+                </li>
+                <li class="d_name" data-field="{&quot;user_id&quot;:1084143839}">
+                    
+                    <a data-field="{&quot;un&quot;:&quot;\u4f60m5&quot;}" alog-group="p_author" class="p_author_name j_user_card" href="https://tieba.baidu.com/home/main?un=%E4%BD%A0m5&amp;ie=utf-8&amp;fr=pb" target="_top"><?=$user1['username']?><img src="1-3.png" class="nicknameEmoji" style="width: 13px; height: 13px;"></a>
+                    
+                </li>
+                            <li class="d_icons">
+                <span class="icon_wrap  icon_wrap_theme1 d_pb_icons "></span>
+                
+            </li>
+                <li class="l_badge" style="display: block;">
+                    <div class="p_badge">
+                        <a href="" target="_top" class="user_badge d_badge_bright d_badge_icon3" title=""><div class="d_badge_title ">等级</div><div class="d_badge_lv"><?=floor(($_SESSION['homeinfo']['jifen'])/100)?></div></a>
+                    </div>
+                </li>
+            </ul></div>
+<div class="d_post_content_main ">        <div class="p_content  ">        <div class="save_face_bg_hidden save_face_bg_0"><a class="save_face_card"></a></div>                <cc>            <div id="post_content_113142420549" class="d_post_content j_d_post_content ">
+
+
+
+
+
+<div>
+	<?=$arr['title']?>
+	<hr>
+</div>
+<div>
+	图片:
+	<?php if(empty($arr['pic'])){
+			echo "无";
+		}else{
+			echo "<img src='../Upload/"."{$arr['pic']}' style='width:30%;cursor:pointer' onclick='javascript:window.open(this.src)'>";
+			}
+		?>
+</div>
+内容：
+<?=$arr['content']?>
+
+
+
+</div><br>            </cc>        <br>        <div class="user-hide-post-down" style="display: none;"></div>                </div>    <div class="core_reply j_lzl_wrapper"><div class="core_reply_tail clearfix"><div class="j_lzl_r p_reply" data-field="{&quot;pid&quot;:113142420549,&quot;total_num&quot;:null}"><span class="lzl_link_fold" style="display: none;">收起回复</span></div><div class="post-tail-wrap"><span class="j_jb_ele"><a href="index.php?c=Tags&a=doStatus&id=<?=$arr['id']?>&showstatus=2" class="tail-info" data-checkun="un" onClick="return confirm('确定举报?');">举报</a></span><div class="lzl_editor_container j_lzl_e_c lzl_editor_container_s" style="display: none;"></div><input class="j_lzl_e_f_h" style="display: none;" value="" type="text"></div><div class="core_reply_border_bottom"></div></div></div><hr></div>
+
+</div>
+
+<!--回复-->
+
+
+<?php foreach($info as $k=>$v):?>
+<div class="li" style="margin:0 auto;width:60%">
+<div class="d_author">                <ul class="p_author">
+                <li class="icon">
+                    <div class="icon_relative j_user_card" data-field="{&quot;un&quot;:&quot;\u4f60m5&quot;}">
+                        
+                        
+                    </div>
+                </li>
+                <li class="d_nameplate">
+                    
+                </li>
+                <li class="d_name" data-field="{&quot;user_id&quot;:1084143839}">
+                    
+                    <a data-field="{&quot;un&quot;:&quot;\u4f60m5&quot;}" alog-group="p_author" class="p_author_name j_user_card" href="https://tieba.baidu.com/home/main?un=%E4%BD%A0m5&amp;ie=utf-8&amp;fr=pb" target="_top"><?php 
+						$user2 = $user->find($v['uid']);
+						echo"{$user2['username']}";
+						?><img src="1-3.png" class="nicknameEmoji" style="width: 13px; height: 13px;"></a>
+                    
+                </li>
+                            <li class="d_icons">
+                <span class="icon_wrap  icon_wrap_theme1 d_pb_icons "></span>
+                
+            </li>
+                <li class="l_badge" style="display: block;">
+                    <div class="p_badge">
+                        <a href="" target="_top" class="user_badge d_badge_bright d_badge_icon3" title=""><div class="d_badge_title ">等级</div><div class="d_badge_lv"><?=floor(($_SESSION['homeinfo']['jifen'])/100)?></div></a>
+                    </div>
+                </li>
+            </ul></div>
+<div class="d_post_content_main ">        <div class="p_content  ">        <div class="save_face_bg_hidden save_face_bg_0"><a class="save_face_card"></a></div>                <cc>            <div id="post_content_113142420549" class="d_post_content j_d_post_content ">
+
+
+
+
+
+
+内容：
+<?=$v['content']?>
+
+
+
+</div><br>            </cc>        <br>        <div class="user-hide-post-down" style="display: none;"></div>                </div>    <div class="core_reply j_lzl_wrapper"><div class="core_reply_tail clearfix"><div class="j_lzl_r p_reply" data-field="{&quot;pid&quot;:113142420549,&quot;total_num&quot;:null}"><a href="#" class="lzl_link_unfold" style="display:;">回复</a><?=date('Y-m-d H:i:s',$v['addtime'])?></div><div class="post-tail-wrap"><span class="j_jb_ele">
+<?php if($_SESSION['homeinfo']['id']==$v['uid']){?>
+<a class="tail-info" data-checkun="un" href="index.php?c=Reply&a=del&id=<?=$v['id']?>" onClick="return confirm('确定删除?');">删除</a>
+<?php }?>
+
+</span><div class="lzl_editor_container j_lzl_e_c lzl_editor_container_s" style="display: none;"></div><input class="j_lzl_e_f_h" style="display: none;" value="" type="text"></div><div class="core_reply_border_bottom"></div></div></div></div>
+
+</div>
+<?php endforeach;?> 
+
+<div class="row-fluid" id="main">
+
+	<div class="span8 offset2">		
+	 
+	
+	
+						
+						
+				
+		<form action="index.php?c=Reply&a=doAdd" method="post" class="form-horizontal ">
+                <h3>发布回复</h3>
+                <input type='hidden' name="tid" value="<?=$arr['id']?>" />
+                <div class="control-group">
+                    <label  class="control-label" for="content">内容</label>
+                    <div class="controls">
+                        <textarea type="text" id="content" name="content" placeholder="请勿发布色情暴力内容" style="width:80%;height:200px" ></textarea>
+                    </div>
+                </div>
+                <button class="btn btn-large btn-primary form-submit" type="submit">&nbsp;&nbsp;提交&nbsp;&nbsp;</button>
+            </form> 
+	</div>
+</div>
+<script type="text/javascript">
+	
+</script>
+<?php include './Public/footer.html';?>
